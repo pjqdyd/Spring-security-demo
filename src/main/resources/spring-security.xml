@@ -35,7 +35,7 @@
         <security:access-denied-handler error-page="/error" />
 
         <!--关闭spring security CSRF机制-->
-        <security:csrf disabled="true"/>
+        <security:csrf disabled="true" />
     </security:http>
 
 
@@ -43,15 +43,23 @@
     <!--认证信息提供方式(账户名, 密码, 当前用户权限)-->
     <security:authentication-manager>
 
-        <security:authentication-provider>
-            <security:user-service>
+        <!--写死的用户数据-->
+        <!--<security:authentication-provider>-->
+            <!--<security:user-service>-->
+                <!--<security:user name="pjqdyd" password="123456" authorities="ROLE_USER"/>-->
+                <!--<security:user name="jack" password="123456" authorities="ROLE_ADMIN"/>-->
+            <!--</security:user-service>-->
+        <!--</security:authentication-provider>-->
 
-                <security:user name="pjqdyd" password="123456" authorities="ROLE_USER"/>
-                <security:user name="jack" password="123456" authorities="ROLE_ADMIN"/>
+        <!--读取用户数据的方式-->
+        <security:authentication-provider user-service-ref="myUserDetailService">
 
-            </security:user-service>
         </security:authentication-provider>
 
+
+
     </security:authentication-manager>
+
+    <bean id="myUserDetailService" class="com.pjqdyd.security.MyUserDetailService"/>
 
 </beans>
