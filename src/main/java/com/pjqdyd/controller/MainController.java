@@ -24,4 +24,13 @@ public class MainController {
         return "login";
     }
 
+    /**
+     * 错误页面
+     * @return
+     */
+    @RequestMapping("/error")
+    public String error(){
+        return "error";
+    }
+
 }

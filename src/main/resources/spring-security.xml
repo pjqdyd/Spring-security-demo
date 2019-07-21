@@ -17,6 +17,10 @@
         <!--pattern需要拦截的资源路径, access=permitAll()所有用户可访问, isAnonymous()匿名者访问-->
         <security:intercept-url pattern="/index" access="permitAll()"/>
         <security:intercept-url pattern="/userLogin" access="permitAll()"/>
+        <security:intercept-url pattern="/product/list" access="hasRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/product/add" access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/product/update" access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/product/delete" access="hasRole('ROLE_ADMIN')"/>
 
         <!--access拦截方式 需要认证-->
         <security:intercept-url pattern="/**" access="isFullyAuthenticated()"/>
@@ -26,6 +30,9 @@
 
         <!--表单方式登录拦截, login-page定制登录页, login-processing-url登录处理地址,默认是表单提交地址/login-->
         <security:form-login login-page="/userLogin" />
+
+        <!--自定义权限不足页-->
+        <security:access-denied-handler error-page="/error" />
 
         <!--关闭spring security CSRF机制-->
         <security:csrf disabled="true"/>
@@ -38,7 +45,10 @@
 
         <security:authentication-provider>
             <security:user-service>
+
                 <security:user name="pjqdyd" password="123456" authorities="ROLE_USER"/>
+                <security:user name="jack" password="123456" authorities="ROLE_ADMIN"/>
+
             </security:user-service>
         </security:authentication-provider>
 
