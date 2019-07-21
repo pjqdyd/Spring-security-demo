@@ -12,14 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/product")
 public class ProductController {
 
-    /**
-     * 首页
-     * @return
-     */
-    @RequestMapping("/index")
-    public String index(){
-        return "index";
-    }
 
     /**
      * 商品添加页面
