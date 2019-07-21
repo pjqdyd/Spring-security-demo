@@ -29,7 +29,9 @@
         <!--<security:http-basic/>-->
 
         <!--表单方式登录拦截, login-page定制登录页, login-processing-url登录处理地址,默认是表单提交地址/login-->
-        <security:form-login login-page="/userLogin" />
+        <security:form-login login-page="/userLogin" default-target-url="/index"
+                             authentication-success-handler-ref="myAuthenticationSuccessHandler"
+                             authentication-failure-handler-ref="myAuthenticationFailureHandler"/>
 
         <!--自定义权限不足页-->
         <security:access-denied-handler error-page="/error" />
@@ -60,6 +62,11 @@
 
     </security:authentication-manager>
 
+    <!--注入spring 容器的bean-->
     <bean id="myUserDetailService" class="com.pjqdyd.security.MyUserDetailService"/>
+
+    <bean id="myAuthenticationSuccessHandler" class="com.pjqdyd.security.MyAuthenticationSuccessHandler" />
+
+    <bean id="myAuthenticationFailureHandler" class="com.pjqdyd.security.MyAuthenticationFailureHandler" />
 
 </beans>
