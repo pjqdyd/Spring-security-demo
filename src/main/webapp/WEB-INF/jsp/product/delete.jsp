@@ -11,6 +11,6 @@
     <title>商品删除页</title>
 </head>
 <body>
-
+<h2>删除</h2>
 </body>
 </html>

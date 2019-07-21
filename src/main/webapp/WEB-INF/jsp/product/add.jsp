@@ -11,6 +11,6 @@
     <title>商品添加页</title>
 </head>
 <body>
-
+<h2>添加</h2>
 </body>
 </html>

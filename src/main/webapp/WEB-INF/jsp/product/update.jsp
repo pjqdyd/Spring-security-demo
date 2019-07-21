@@ -11,6 +11,6 @@
     <title>商品更新页</title>
 </head>
 <body>
-
+<h2>更新</h2>
 </body>
 </html>

@@ -7,11 +7,31 @@
        http://www.springframework.org/schema/security
        http://www.springframework.org/schema/security/spring-security-4.2.xsd">
 
+    <!--spring security过滤器链配置-->
+    <!--1.需要拦截什么资源-->
+    <!--2.什么资源什么角色权限-->
+    <!--3.定义认证方式HttpBasic, FormLogin-->
+    <!--4.定义登录页面, 定义登录请求地址, 定义错误处理方式-->
     <security:http>
+
+        <!--pattern需要拦截的资源路径-->
+        <!--access拦截方式 需要认证-->
+        <security:intercept-url pattern="/**" access="isFullyAuthenticated()"/>
+
+        <!--httpBasic拦截方式-->
         <security:http-basic/>
     </security:http>
 
+
+    <!--spring security 认证管理器-->
+    <!--认证信息提供方式(账户名, 密码, 当前用户权限)-->
     <security:authentication-manager>
+
+        <security:authentication-provider>
+            <security:user-service>
+                <security:user name="pjqdyd" password="123456" authorities="ROLE_USER"/>
+            </security:user-service>
+        </security:authentication-provider>
 
     </security:authentication-manager>
 

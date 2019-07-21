@@ -12,10 +12,10 @@
 </head>
 <body>
 
-   <a href="/product/add">商品添加</a>
-   <a href="/product/update">商品更新</a>
-   <a href="/product/delete">商品删除</a>
-   <a href="/product/list">商品列表</a>
+   <a href="/ss/product/add">商品添加</a>
+   <a href="/ss/product/update">商品更新</a>
+   <a href="/ss/product/delete">商品删除</a>
+   <a href="/ss/product/list">商品列表</a>
 
 </body>
 </html>
